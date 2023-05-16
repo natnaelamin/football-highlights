@@ -1,33 +1,21 @@
-const apiUrl = 'https://api.football-data.org/v2/competitions/PL/scorers';
-const button = document.querySelector('#fetch-button');
-const dataContainer = document.querySelector('#data-container');
+const url = "https://free-football-soccer-videos.p.rapidapi.com/";
+      const options = {
+        method: "GET",
+        headers: {
+          "X-RapidAPI-Key":
+            "8b06f46207msha4a5caf7f953de7p10c17ajsnac74283a5319",
+          "X-RapidAPI-Host": "free-football-soccer-videos.p.rapidapi.com",
+        },
+      };
 
-button.addEventListener('click', () => {
-  fetch(apiUrl, {
-    headers: {
-      'X-Auth-Token': '71681a3171f44458bfe1791951004a1c'
-    }
-  })
-    .then(response => {
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
+      async function fetchHighlights() {
+        try {
+          const response = await fetch(url, options);
+          const result = await response.text();
+          document.getElementById("tablee").innerHTML = result;
+        } catch (error) {
+          console.error(error);
+        }
       }
-      return response.json();
-    })
-    .then(data => {
-      // Create an <ul> element to display the data
-      const ul = document.createElement('ul');
 
-      // Loop through the scorers and create an <li> element for each one
-      data.scorers.forEach(scorer => {
-        const li = document.createElement('li');
-        li.textContent = `${scorer.player.name} (${scorer.team.name}): ${scorer.numberOfGoals} goals`;
-        ul.appendChild(li);
-      });
-
-      // Add the <ul> element to the data container
-      dataContainer.innerHTML = '';
-      dataContainer.appendChild(ul);
-    })
-    .catch(error => console.error(error));
-});
+      fetchHighlights();
