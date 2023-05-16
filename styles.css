@@ -1,0 +1,54 @@
+html, body{
+    margin: 0;
+    padding: 0;
+}
+
+
+h1{
+    color: whitesmoke;
+    text-align: center;
+    font-size: 4em;
+    margin: 0%;
+    padding-top: 20px;  
+}
+
+.main-header{
+   background-image:  url(images/head.jpg); 
+   background-size: contain;
+   padding-bottom: 50px;
+}
+
+section{
+   
+   
+    display: flex;
+    justify-content: center;
+    background-position: center;
+background-repeat: no-repeat;
+background-size: cover;
+}
+
+.wrapper{ 
+    -height: 300px;
+    background: rgb(195, 143, 240);
+    border-radius: 20px;
+    margin-top: 300px;
+    width: 800px;
+    margin-bottom: 500px; 
+}
+
+.wrapper h2{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgb(27, 11, 11);
+    text-align: center;
+    font-size: 3em;
+    margin-top: 0%;
+}
+
+
+
+
+
+
